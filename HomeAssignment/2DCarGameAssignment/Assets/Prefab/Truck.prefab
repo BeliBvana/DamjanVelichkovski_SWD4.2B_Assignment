@@ -10,7 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1562992146590274862}
   - component: {fileID: 7020919624596986302}
-  m_Layer: 0
+  - component: {fileID: 5315098962759953163}
+  - component: {fileID: 3625311489610319483}
+  - component: {fileID: 7745306424115996050}
+  - component: {fileID: -9082662818366220428}
+  m_Layer: 7
   m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,3 +86,99 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5315098962759953163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354706270249093754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7c137d6e86f724088c5fd264012aef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  waveConfig: {fileID: 0}
+--- !u!60 &3625311489610319483
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354706270249093754}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.58, y: 5.95}
+    newSize: {x: 2.58, y: 5.95}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.27, y: -2.615}
+      - {x: 1.27, y: -2.385}
+      - {x: 1.24, y: -2.235}
+      - {x: 1.24, y: -1.4649999}
+      - {x: 1.27, y: -1.3249999}
+      - {x: 1.27, y: 2.895}
+      - {x: 1.18, y: 2.975}
+      - {x: -1.13, y: 2.975}
+      - {x: -1.22, y: 2.905}
+      - {x: -1.23, y: 2.8149998}
+      - {x: -1.22, y: 2.8049998}
+      - {x: -1.22, y: -1.365}
+      - {x: -1.1999999, y: -2.225}
+      - {x: -1.1899999, y: -2.2649999}
+      - {x: -1.22, y: -2.395}
+      - {x: -1.23, y: -2.495}
+      - {x: -1.23, y: -2.655}
+      - {x: -0.9, y: -2.915}
+      - {x: -0.45, y: -2.975}
+      - {x: 0.45, y: -2.975}
+      - {x: 0.79999995, y: -2.935}
+      - {x: 1, y: -2.865}
+      - {x: 1.2099999, y: -2.695}
+--- !u!114 &7745306424115996050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354706270249093754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c89a0fb73e308754ba57b9f5bed953c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 4
+--- !u!50 &-9082662818366220428
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354706270249093754}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

@@ -5,17 +5,16 @@ using UnityEngine;
 public class ObstraclePathing : MonoBehaviour
 {
     [SerializeField] List<Transform> waypoints;
-    [SerializeField] float moveSpeed = 2f;
-    int waypointIndex = 0;
+    [SerializeField] WaveConfig waveConfig;
     //waypointIndex shows in which waypoint the obstracle currently is
-
+    int waypointIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         // setting the starting position of the obstracle to the first waypoint
+        waypoints = waveConfig.GetWaypoints();
         transform.position = waypoints[waypointIndex].transform.position;
-
     }
 
     // Update is called once per frame
@@ -35,7 +34,7 @@ public class ObstraclePathing : MonoBehaviour
             //to make sure z position is 0	
             targetPosition.z = 0f;
 
-            var movementThisFrame = moveSpeed * Time.deltaTime;
+            var movementThisFrame = waveConfig.GetEnemyMoveSpeed() * Time.deltaTime;
             //move from the current position, to the target position, the maximum distance one can move
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, movementThisFrame);
 
@@ -50,7 +49,11 @@ public class ObstraclePathing : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
+    //setting up a WaveConfig
+    public void SetWaveConfig(WaveConfig waveConfigToSet)
+    {
+        waveConfig = waveConfigToSet;
+    }
 }

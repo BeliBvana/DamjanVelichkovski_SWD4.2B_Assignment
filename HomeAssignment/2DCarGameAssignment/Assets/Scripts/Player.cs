@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     float xMin, xMax, yMin, yMax;
     [SerializeField] float padding = 10f;
     [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float health = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,36 @@ public class Player : MonoBehaviour
         xMin = gameCamera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
         xMax = gameCamera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
 
-        
-
     }
+
+    //reduces health whenever enemy collides with a gameObject which has DamageDealer component
+    private void OnTriggerEnter2D(Collider2D otherObject)
+    {
+        //saving all the information of the DamageDealer objectLaser in dmg
+        DamageDealer damage = otherObject.gameObject.GetComponent<DamageDealer>();
+        // if the object does not have a damageDealer class end the method
+        if (!damage)//if dmg does not exist
+        {
+            return;
+        }
+
+        ProcessHit(damage);
+    }
+
+    private void ProcessHit(DamageDealer damage)
+    {
+        health -= damage.GetDamage();
+        Debug.Log(health);
+        damage.Hit();
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }
