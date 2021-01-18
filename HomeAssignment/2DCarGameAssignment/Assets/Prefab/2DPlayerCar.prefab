@@ -98,7 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   padding: 1.5
   moveSpeed: 10
-  health: 50
+  health: 5
+  deathVFX: {fileID: 4692456150655245488, guid: 88aa7dc7f10eafe40b4a8a57819ffcf7, type: 3}
+  explosionDuration: 1
 --- !u!60 &3088701211487131567
 PolygonCollider2D:
   m_ObjectHideFlags: 0

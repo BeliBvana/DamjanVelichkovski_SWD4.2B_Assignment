@@ -44,11 +44,7 @@ public class ObstraclePathing : MonoBehaviour
                 waypointIndex++;
             }
         }
-        //if obstracle moved to all waypoints
-        else
-        {
-            Destroy(gameObject);
-        }
+        
     }
 
     //setting up a WaveConfig

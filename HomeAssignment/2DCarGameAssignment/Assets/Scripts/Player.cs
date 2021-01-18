@@ -9,6 +9,10 @@ public class Player : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float health = 50;
 
+    [SerializeField] GameObject deathVFX;
+    [SerializeField] float explosionDuration;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +74,13 @@ public class Player : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        //create an explosion particle
+        GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity);
+        //destroy after 1 sec
+        Destroy(explosion, 1f);
+        //find object of type Level in Hierarchy and run its method LoadGameOver()
+        FindObjectOfType<Level>().LoadGameOver();
+
     }
 
 }
