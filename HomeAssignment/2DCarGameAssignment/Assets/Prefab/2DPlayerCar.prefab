@@ -101,6 +101,8 @@ MonoBehaviour:
   health: 5
   deathVFX: {fileID: 4692456150655245488, guid: 88aa7dc7f10eafe40b4a8a57819ffcf7, type: 3}
   explosionDuration: 1
+  healthreduce: {fileID: 8300000, guid: 616061565c0378341bb65232e83663f4, type: 3}
+  healthreducevolume: 0.75
 --- !u!60 &3088701211487131567
 PolygonCollider2D:
   m_ObjectHideFlags: 0

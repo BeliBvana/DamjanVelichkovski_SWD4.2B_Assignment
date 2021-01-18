@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4842045335279031792}
   - component: {fileID: 5786580736131423804}
   - component: {fileID: -7959617552648464949}
+  - component: {fileID: 327097297587200146}
   m_Layer: 7
   m_Name: RedCar
   m_TagString: Untagged
@@ -210,3 +211,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &327097297587200146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4990390384444347515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1695c5f50511a614da299b4e9fe3b8e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathVFX: {fileID: 4692456150655245488, guid: 88aa7dc7f10eafe40b4a8a57819ffcf7, type: 3}
+  explosionDuration: 1

@@ -22,6 +22,10 @@ public class Level : MonoBehaviour
     {
         StartCoroutine(WaitAndLoad());
     }
+    public void LoadWinner()
+    {
+        StartCoroutine(WaitAndLoad2());
+    }
 
     public void QuitGame()
     {
@@ -32,6 +36,11 @@ public class Level : MonoBehaviour
     {
         yield return new WaitForSeconds(delayInSeconds);
         SceneManager.LoadScene("GameOver");
+    }
+    IEnumerator WaitAndLoad2()
+    {
+        yield return new WaitForSeconds(delayInSeconds);
+        SceneManager.LoadScene("Winner");
     }
 
 

@@ -5,9 +5,9 @@ using UnityEngine;
 public class Shredder : MonoBehaviour
 {
 
-    [SerializeField] AudioClip healthReduce;
+    [SerializeField] AudioClip pointsgained;
 
-    [SerializeField] [Range(0, 1)] float healthReduceVolume = 0.75f;
+    [SerializeField] [Range(0, 1)] float pointsgainedvolume = 0.75f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,7 +16,7 @@ public class Shredder : MonoBehaviour
             //destroy game object
             Destroy(collision.gameObject);
 
-            AudioSource.PlayClipAtPoint(healthReduce, Camera.main.transform.position, healthReduceVolume);
+            AudioSource.PlayClipAtPoint(pointsgained, Camera.main.transform.position, pointsgainedvolume);
 
 
         }

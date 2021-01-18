@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
     [SerializeField] float explosionDuration;
 
 
+    [SerializeField] AudioClip healthreduce;
+
+    [SerializeField] [Range(0, 1)] float healthreducevolume = 0.75f;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,9 +56,13 @@ public class Player : MonoBehaviour
     {
         //saving all the information of the DamageDealer objectLaser in dmg
         DamageDealer damage = otherObject.gameObject.GetComponent<DamageDealer>();
+        Explosion explosion = otherObject.gameObject.GetComponent<Explosion>();
         // if the object does not have a damageDealer class end the method
-        if (!damage)//if dmg does not exist
+        if (otherObject.gameObject.tag == "Obstracle")//if dmg does not exist
         {
+            ProcessHit(damage);
+            explosion.ObstracleExplosion();
+
             return;
         }
 
@@ -63,6 +72,7 @@ public class Player : MonoBehaviour
     private void ProcessHit(DamageDealer damage)
     {
         health -= damage.GetDamage();
+        AudioSource.PlayClipAtPoint(healthreduce, Camera.main.transform.position, healthreducevolume);
         Debug.Log(health);
         damage.Hit();
         if (health <= 0)
