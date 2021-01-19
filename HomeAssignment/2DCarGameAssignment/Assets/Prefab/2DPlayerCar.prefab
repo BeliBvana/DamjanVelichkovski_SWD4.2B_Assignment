@@ -98,10 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   padding: 1.5
   moveSpeed: 10
-  health: 5
+  health: 50
   deathVFX: {fileID: 4692456150655245488, guid: 88aa7dc7f10eafe40b4a8a57819ffcf7, type: 3}
   explosionDuration: 1
-  healthreduce: {fileID: 8300000, guid: 616061565c0378341bb65232e83663f4, type: 3}
+  healthreduce: {fileID: 8300000, guid: 6c7c7ea5e0dfcec429e0b3e082c7d586, type: 3}
   healthreducevolume: 0.75
 --- !u!60 &3088701211487131567
 PolygonCollider2D:

@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class Shredder : MonoBehaviour
 {
-
+    [SerializeField] int scoreValue = 5;
+    
     [SerializeField] AudioClip pointsgained;
 
     [SerializeField] [Range(0, 1)] float pointsgainedvolume = 0.75f;
+    
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D otherObject)
     {
-        if(collision.gameObject.tag == "Obstacle")
+        if(otherObject.gameObject.tag == "Obstracle")
         {
             //destroy game object
-            Destroy(collision.gameObject);
+            Destroy(otherObject.gameObject);
 
             AudioSource.PlayClipAtPoint(pointsgained, Camera.main.transform.position, pointsgainedvolume);
-
-
+            //Debug.Log("Hello"); // I was checking this as I had issues with the game tag
+            FindObjectOfType<GameSession>().AddToScore(scoreValue);
         }
         else
         {
-            Destroy(collision.gameObject);
+            Destroy(otherObject.gameObject);
         }
         
     }

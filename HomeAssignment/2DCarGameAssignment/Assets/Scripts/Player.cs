@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     float xMin, xMax, yMin, yMax;
     [SerializeField] float padding = 10f;
     [SerializeField] float moveSpeed = 10f;
-    [SerializeField] float health = 50;
+    [SerializeField] int health = 50;
 
     [SerializeField] GameObject deathVFX;
     [SerializeField] float explosionDuration;
@@ -17,11 +17,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] [Range(0, 1)] float healthreducevolume = 0.75f;
 
+    GameSession gameSession;
+    int total = 100;
 
     // Start is called before the first frame update
     void Start()
     {
         SetUpMoveBoundaries();
+        gameSession = FindObjectOfType<GameSession>();
     }
 
     // Update is called once per frame
@@ -29,6 +32,11 @@ public class Player : MonoBehaviour
     {
         Move();
     }
+    public int GetHealth()
+    {
+        return health;
+    }
+
 
     private void Move()
     {
@@ -73,10 +81,11 @@ public class Player : MonoBehaviour
     {
         health -= damage.GetDamage();
         AudioSource.PlayClipAtPoint(healthreduce, Camera.main.transform.position, healthreducevolume);
-        Debug.Log(health);
+       // Debug.Log(health);
         damage.Hit();
-        if (health <= 0)
+        if ((health <= 0) && (gameSession.GetScore() < total))
         {
+            health = 0;
             Die();
         }
     }

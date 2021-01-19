@@ -70,5 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de2b03b6087436e4ca22c38feb377d5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthReduce: {fileID: 8300000, guid: 29d388330a6f7694a80e5cf609c4674c, type: 3}
-  healthReduceVolume: 0.75
+  pointsgained: {fileID: 8300000, guid: 718b5cae8fb31a34ca081dfaf5cf8fb5, type: 3}
+  pointsgainedvolume: 1
+  scoreValue: 5

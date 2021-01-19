@@ -16,11 +16,14 @@ public class Level : MonoBehaviour
     {
         //loads the scene with name LaserDefender
         SceneManager.LoadScene("MainGame");
+        //reset the game from the beginning
+        FindObjectOfType<GameSession>().ResetGame();
     }
 
     public void LoadGameOver()
     {
         StartCoroutine(WaitAndLoad());
+      
     }
     public void LoadWinner()
     {
