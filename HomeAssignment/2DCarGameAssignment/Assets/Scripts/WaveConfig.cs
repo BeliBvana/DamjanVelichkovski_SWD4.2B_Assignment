@@ -5,17 +5,17 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Enemy Wave Config")]
 public class WaveConfig : ScriptableObject
 {
-    //the enemy
+    // The enemy
     [SerializeField] GameObject enemyPrefab;
-    //the path on which to go
+    // The path on which to go
     [SerializeField] GameObject pathPrefab;
-    //time between each spawn
+    // Time between each spawn
     [SerializeField] float timeBetweenSpawns = 0.5f;
-    //include this random time difference between spawns
+    // Include this random time difference between spawns
     [SerializeField] float spawnRandomFactor = 0.3f;
-    //number of enemies in the wave
+    // Number of enemies in the wave
     [SerializeField] int numberOfEnemies = 5;
-    //enemy movement speed
+    // Enemy movement speed
     [SerializeField] float enemyMoveSpeed = 2f;
 
     public GameObject GetEnemyPrefab()
@@ -25,18 +25,14 @@ public class WaveConfig : ScriptableObject
 
     public List<Transform> GetWaypoints()
     {
-        //each wave can have different waypoints
-        var waveWayPoints = new List<Transform>();
+        var waveWayPoints = new List<Transform>(); // Each wave can have different waypoints
 
-        //go into Path prefab and for each child, add it to the List waveWaypoints
-        foreach (Transform child in pathPrefab.transform)
+        foreach (Transform child in pathPrefab.transform) // Go into Path prefab and for each child, add it to the List waveWaypoints
         {
             waveWayPoints.Add(child);
         }
-
         return waveWayPoints;
     }
-
 
     public float GetTimeBetweenSpawns()
     {

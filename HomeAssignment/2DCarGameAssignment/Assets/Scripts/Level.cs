@@ -5,46 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] float delayInSeconds = 2f;
+    [SerializeField] float delayInSeconds = 1f;
     public void LoadStartMenu()
     {
-        //loads the first scene in the Project
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0); // Loads the project's first scene
     }
 
     public void LoadGame()
     {
-        //loads the scene with name LaserDefender
-        SceneManager.LoadScene("MainGame");
-        //reset the game from the beginning
-        FindObjectOfType<GameSession>().ResetGame();
+        SceneManager.LoadScene("MainGame"); // Loads the scene with name MainGame
+        FindObjectOfType<GameSession>().ResetGame(); // Reset the game from the beginning
     }
 
     public void LoadGameOver()
     {
-        StartCoroutine(WaitAndLoad());
-      
+        StartCoroutine(WaitAndLoad()); // Starts the coroutine WaitAndLoad()
     }
+
     public void LoadWinner()
     {
-        StartCoroutine(WaitAndLoad2());
+        StartCoroutine(WaitAndLoad2()); // Starts the coroutine WaitAndLoad2()
     }
 
     public void QuitGame()
     {
-        Application.Quit();
+        Application.Quit(); // Quits the application
     }
 
     IEnumerator WaitAndLoad()
     {
-        yield return new WaitForSeconds(delayInSeconds);
-        SceneManager.LoadScene("GameOver");
+        yield return new WaitForSeconds(delayInSeconds); // Does the delay
+        SceneManager.LoadScene("GameOver"); // Loads the scene with name GameOver
     }
+
     IEnumerator WaitAndLoad2()
     {
-        yield return new WaitForSeconds(delayInSeconds);
-        SceneManager.LoadScene("Winner");
+        yield return new WaitForSeconds(delayInSeconds); // Does the delay
+        SceneManager.LoadScene("Winner"); // Loads the scene with name Winner
     }
-
-
 }

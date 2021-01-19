@@ -6,15 +6,14 @@ public class Obstracle : MonoBehaviour
 {
     [SerializeField] float shotCounter;
     [SerializeField] float minTimeBetweenShots = 0.2f;
-    [SerializeField] float maxTimeBetweenShots = 3f;
+    [SerializeField] float maxTimeBetweenShots = 2f;
     [SerializeField] GameObject obstacleLaserPrefab;
     [SerializeField] float obstacleLaserSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
-    {
-        //generate a random number
-        shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+    {        
+        shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots); // Generates a random number
     }
 
     // Update is called once per frame
@@ -23,27 +22,23 @@ public class Obstracle : MonoBehaviour
         CountDownAndShoot();
     }
 
-    //count down shotCounter to 0 and shoot
+    // Count down shotCounter to 0 and shoot
     private void CountDownAndShoot()
     {
-        //every frame reduce the amount of time of shotCounter
-        shotCounter -= Time.deltaTime;
+        shotCounter -= Time.deltaTime; // Every frame reduce the amount of time of shotCounter
 
         if (shotCounter <= 0f)
         {
             ObstacleFire();
-            //reset shotCounter after every fire.
-            shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots);
+            shotCounter = Random.Range(minTimeBetweenShots, maxTimeBetweenShots); // Reset shotCounter after every fire
         }
     }
 
-    //spawn an obstacle Laser from the Obstacle's position
+    // Spawns an obstacle Laser from the Obstacle's position
     private void ObstacleFire()
     {
         GameObject enemyLaser = Instantiate(obstacleLaserPrefab, transform.position, Quaternion.identity);
 
-        //obstacle laser shoots downwards, hence -obstacleLaserSpeed
-        enemyLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -obstacleLaserSpeed);
-
+        enemyLaser.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -obstacleLaserSpeed); // Obstacle laser shoots downwards, hence -obstacleLaserSpeed
     }
 }

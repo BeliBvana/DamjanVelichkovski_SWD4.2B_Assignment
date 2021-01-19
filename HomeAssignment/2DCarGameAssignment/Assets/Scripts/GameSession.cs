@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
-     public int score = 0;
+     public int score = 0; // So the score always starts as 0
 
     private void Awake()
     {
         SetUpSingleton();
     }
 
-    //to make sure that only 1 GameSession is running
+    // This is checking that only one GameSession is running
     private void SetUpSingleton()
     {
         int numberGameSessions = FindObjectsOfType<GameSession>().Length;
@@ -23,24 +23,20 @@ public class GameSession : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
-
     }
-    //get the value of score
+
     public int GetScore()
     {
-        return score;
+        return score; // Gets the score value
     }
 
-    //add scoreValue to score
     public void AddToScore(int scoreValue)
     {
-        score += scoreValue;
+        score += scoreValue; // Adds scoreValue to score
     }
 
     public void ResetGame()
     {
-        Destroy(gameObject);
+        Destroy(gameObject); // Destroys game object
     }
-
-
 }

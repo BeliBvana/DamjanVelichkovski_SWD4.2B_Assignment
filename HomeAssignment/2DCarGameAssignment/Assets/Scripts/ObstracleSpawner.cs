@@ -4,26 +4,22 @@ using UnityEngine;
 
 public class ObstracleSpawner : MonoBehaviour
 {
-    //a list of WaveConfigs
-    [SerializeField] List<WaveConfig> waveConfigs;
+    [SerializeField] List<WaveConfig> waveConfigs; 
     [SerializeField] bool looping = false;
 
-    //we always start  from Wave 0
-    int startingWave = 0;
+    int startingWave = 0; // Always starting from here
 
     // Start is called before the first frame update
     IEnumerator Start()
     {
         do
         {
-            //start the coroutine that spawns all enemies in our currentWave
-            yield return StartCoroutine(SpawnAllWaves());
+            yield return StartCoroutine(SpawnAllWaves()); // Start the coroutine that spawns all enemies in our currentWave
         }
-        //when coroutine SpawnAllWaves finishes check if looping == true
-        while (looping);
+        while (looping); // When coroutine SpawnAllWaves finishes check if looping == true
     }
 
-    //when calling this Corotuine, we need to specify which WaveConfig we want to spawn
+    // When calling this Corotuine, we need to specify which WaveConfig we want to spawn
     private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
     {
         for (int enemyCount = 0; enemyCount < waveConfig.GetNumberOfEnemies(); enemyCount++)
@@ -39,17 +35,16 @@ public class ObstracleSpawner : MonoBehaviour
 
             yield return new WaitForSeconds(waveConfig.GetTimeBetweenSpawns());
         }
-
     }
 
     private IEnumerator SpawnAllWaves()
     {
-        //this will loop from startingWave until we reach the last within our List
+        // This will loop from startingWave until we reach the last within our List
         for (int waveIndex = startingWave; waveIndex < waveConfigs.Count; waveIndex++)
         {
             var currentWave = waveConfigs[waveIndex];
-            //the coroutine will wait for all enemies in Wave to spawn
-            //before yielding and going to the next loop
+            // The coroutine will wait for all enemies in Wave to spawn
+            // Before yielding and going to the next loop
             yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
         }
     }

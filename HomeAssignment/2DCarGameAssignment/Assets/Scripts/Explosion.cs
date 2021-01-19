@@ -9,9 +9,7 @@ public class Explosion : MonoBehaviour
 
     public void ObstracleExplosion()
     {
-        //create an explosion particle
-        GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity);
-        //destroy after 1 sec
-        Destroy(explosion, 1f);
+        GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity); // Creates an explosion particle
+        Destroy(explosion, 1f); // Destroys the explosion after 1 sec
     }
 }

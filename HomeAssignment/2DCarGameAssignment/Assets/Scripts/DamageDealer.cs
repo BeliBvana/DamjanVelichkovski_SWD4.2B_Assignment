@@ -6,15 +6,13 @@ public class DamageDealer : MonoBehaviour
 {
     [SerializeField] int damage;
 
-    //the damage received
     public int GetDamage()
     {
-        return damage;
+        return damage; // Gets the damage
     }
 
-    //destroys the object
     public void Hit()
     {
-        Destroy(gameObject);
+        Destroy(gameObject); // Destroys object
     }
 }

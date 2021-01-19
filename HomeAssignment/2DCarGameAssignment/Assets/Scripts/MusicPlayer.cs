@@ -9,26 +9,17 @@ public class MusicPlayer : MonoBehaviour
         SetUpSingleton();
     }
 
-    void Update()
-    {
-        
-    }
-
     private void SetUpSingleton()
     {
-        //GetType(): gets the type of Object attached to this script: MusicPlayer
-        // if there is more than 1 MusicPlayer in Scene, destroy the last one
+        // GetType(): gets the type of Object attached to this script: MusicPlayer
+        // If there is more than 1 MusicPlayer in Scene, destroy the last one
         if (FindObjectsOfType(GetType()).Length > 1)
         {
             Destroy(gameObject);
         }
         else
         {
-            //Do not destroy the MusicPlayer gameObject when changing scenes
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject); // Do not destroy the MusicPlayer gameObject when changing scenes
         }
-
     }
-
-
 }

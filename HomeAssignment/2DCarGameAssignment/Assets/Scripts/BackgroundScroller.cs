@@ -4,30 +4,21 @@ using UnityEngine;
 
 public class BackgroundScroller : MonoBehaviour
 {
-    //the speed of the scrolling
-    [SerializeField] float backgroundScrollSpeed = 0.02f;
-    //the material from the texture
-    Material myMaterial;
-    //the movement
-    Vector2 offSet;
+    [SerializeField] float backgroundScrollSpeed = 0.02f; // The background scrolling speed
+    Material myMaterial; // The material from the texture
+    Vector2 offSet; // The movement
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //get the material of the background from the Renderer component
-        myMaterial = GetComponent<Renderer>().material;
-        //will scroll in the y-axis at the speed
-        offSet = new Vector2(0f, backgroundScrollSpeed);
-
+        myMaterial = GetComponent<Renderer>().material; // Get the background material from the renderer component
+        offSet = new Vector2(0f, backgroundScrollSpeed); // To scroll in the y-axis at the speed
     }
 
     // Update is called once per frame
     void Update()
     {
-        //move the material mainTextureOffset by offSet every frame
-        myMaterial.mainTextureOffset += offSet * Time.deltaTime;
-
+        myMaterial.mainTextureOffset += offSet * Time.deltaTime; // Moving the myMaterial.mainTextureOffset by offSet every frame
     }
-
 }

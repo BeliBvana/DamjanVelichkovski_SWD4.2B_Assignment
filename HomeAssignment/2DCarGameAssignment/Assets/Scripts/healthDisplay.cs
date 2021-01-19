@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class healthDisplay : MonoBehaviour
 {
-
     Text healthText;
     Player player;
 
@@ -19,9 +18,6 @@ public class healthDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        healthText.text = player.GetHealth().ToString();
+        healthText.text = player.GetHealth().ToString(); // Updates the player's health
     }
-
-
 }
