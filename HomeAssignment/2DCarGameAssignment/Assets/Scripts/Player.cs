@@ -55,11 +55,11 @@ public class Player : MonoBehaviour
     // Reduces health whenever enemy collides with a gameObject which has DamageDealer component
     private void OnTriggerEnter2D(Collider2D otherObject)
     {
-        // Saving all the information of the DamageDealer objectLaser in dmg
+        // Saving all the information of the DamageDealer objectLaser in damage
         DamageDealer damage = otherObject.gameObject.GetComponent<DamageDealer>();
         Explosion explosion = otherObject.gameObject.GetComponent<Explosion>();
         // If the object does not have a damageDealer class end the method
-        if (otherObject.gameObject.tag == "Obstracle")// If there is no damage
+        if (otherObject.gameObject.CompareTag("Obstracle")) // If there is no damage
         {
             ProcessHit(damage);
             explosion.ObstracleExplosion();

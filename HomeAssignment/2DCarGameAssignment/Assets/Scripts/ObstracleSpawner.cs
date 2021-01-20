@@ -6,8 +6,7 @@ public class ObstracleSpawner : MonoBehaviour
 {
     [SerializeField] List<WaveConfig> waveConfigs; 
     [SerializeField] bool looping = false;
-
-    int startingWave = 0; // Always starting from here
+    readonly int startingWave = 0; // Always starting from here
 
     // Start is called before the first frame update
     IEnumerator Start()

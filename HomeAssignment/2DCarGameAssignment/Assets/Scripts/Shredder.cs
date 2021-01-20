@@ -10,7 +10,7 @@ public class Shredder : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D otherObject)
     {
-        if(otherObject.gameObject.tag == "Obstracle")
+        if(otherObject.gameObject.CompareTag("Obstracle"))
         {
             Destroy(otherObject.gameObject); // Destroys game object
             AudioSource.PlayClipAtPoint(pointsgained, Camera.main.transform.position, pointsgainedvolume);
